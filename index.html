@@ -176,6 +176,49 @@ tbody tr:last-child td { border-bottom: 0; }
 .detail-output { background:var(--accent-soft); border:1px solid var(--border); border-radius:12px; padding:15px; }
 .detail-output h3 { font-size:12px; margin:0 0 8px; }
 .detail-output p { color:var(--muted); font-size:11px; line-height:1.6; margin:0; }
+.syllabus-tools { display:flex; gap:12px; align-items:center; justify-content:space-between; flex-wrap:wrap; margin-bottom:12px; }
+.syllabus-tools .field { max-width:340px; }
+.syllabus-hint { color:var(--muted); font-size:11px; line-height:1.5; }
+.syllabus-progress-wrap { margin:0 0 16px; }
+.syllabus-list { display:grid; gap:10px; }
+.syllabus-group { border:1px solid var(--border); border-radius:12px; overflow:hidden; background:var(--surface); }
+.syllabus-group summary { display:flex; align-items:center; gap:10px; padding:13px 15px; cursor:pointer; list-style:none; background:var(--surface-2); font-size:12px; font-weight:800; }
+.syllabus-group summary::-webkit-details-marker { display:none; }
+.syllabus-group summary::before { content:"›"; color:var(--muted); font-size:18px; line-height:1; transform:rotate(0); transition:transform .15s; }
+.syllabus-group[open] summary::before { transform:rotate(90deg); }
+.syllabus-group-name { flex:1; min-width:0; }
+.syllabus-group-progress { color:var(--muted); font-size:10px; font-weight:700; white-space:nowrap; }
+.syllabus-problems { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:7px; padding:12px; }
+.syllabus-problem { display:flex; align-items:flex-start; gap:9px; border:1px solid var(--border); border-radius:9px; padding:10px; color:var(--text); font-size:11px; line-height:1.45; }
+.syllabus-problem input { accent-color:var(--accent); margin:2px 0 0; flex-shrink:0; }
+.syllabus-problem span { min-width:0; }
+.syllabus-problem.done { background:var(--green-soft); color:var(--green); }
+.syllabus-problem.done span { text-decoration:line-through; }
+.syllabus-empty { padding:18px; color:var(--muted); font-size:12px; text-align:center; }
+.dsa-roadmap-summary { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:14px; align-items:center; margin-bottom:14px; }
+.dsa-roadmap-tools { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:14px; }
+.dsa-roadmap-tools .field { max-width:360px; }
+.dsa-week { border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:10px; background:var(--surface); }
+.dsa-week summary { display:flex; align-items:center; gap:10px; padding:13px 15px; cursor:pointer; list-style:none; background:var(--surface-2); font-size:12px; font-weight:800; }
+.dsa-week summary::-webkit-details-marker { display:none; }
+.dsa-week summary::before { content:"›"; color:var(--muted); font-size:18px; line-height:1; transition:transform .15s; }
+.dsa-week[open] summary::before { transform:rotate(90deg); }
+.dsa-week-title { flex:1; min-width:0; }
+.dsa-week-count { color:var(--muted); font-size:10px; font-weight:700; white-space:nowrap; }
+.dsa-day-list { display:grid; gap:7px; padding:10px; }
+.dsa-day-row { display:grid; grid-template-columns:54px minmax(0,1fr) auto; gap:10px; align-items:start; border:1px solid var(--border); border-radius:10px; padding:11px; }
+.dsa-day-number { color:var(--accent); font-size:11px; font-weight:850; padding-top:2px; }
+.dsa-day-main { min-width:0; }
+.dsa-day-name { font-size:11px; line-height:1.45; font-weight:800; }
+.dsa-day-category { margin-top:4px; color:var(--muted); font-size:10px; }
+.dsa-day-note { margin-top:5px; color:var(--muted); font-size:10px; line-height:1.5; }
+.dsa-day-row input { accent-color:var(--accent); width:16px; height:16px; margin:2px 0 0; }
+.dsa-day-row.done { border-color:light-dark(#b7e5d0,#315f4f); background:var(--green-soft); }
+.dsa-day-row.done .dsa-day-name { color:var(--green); text-decoration:line-through; }
+.dsa-day-row.done .dsa-day-category { color:var(--green); }
+.dsa-next-card { border:1px solid var(--border); background:var(--accent-soft); border-radius:12px; padding:14px; margin-bottom:14px; }
+.dsa-next-card h3 { font-size:12px; margin:0 0 6px; }
+.dsa-next-card p { margin:0; color:var(--muted); font-size:11px; line-height:1.55; }
 .footer-note { color: var(--muted); font-size: 10px; text-align: center; margin-top: 25px; }
 .mobile-menu { display: none; }
 .toast { position: fixed; right: 22px; bottom: 22px; background: var(--text); color: var(--bg); border-radius: 11px; padding: 12px 16px; box-shadow: var(--shadow); font-size: 12px; z-index: 99; opacity: 0; transform: translateY(8px); transition: .2s; pointer-events: none; }
@@ -183,6 +226,8 @@ tbody tr:last-child td { border-bottom: 0; }
 @media (max-width: 1100px) { .layout { grid-template-columns: 210px minmax(0,1fr); } .content { padding: 25px 22px 38px; } .topbar { padding: 14px 22px; } .stats { grid-template-columns: repeat(2,minmax(0,1fr)); } .week-strip { grid-template-columns: repeat(7,minmax(0,1fr)); } }
 @media (max-width: 780px) { .layout { display: block; } .sidebar { position: fixed; inset: 0 auto 0 0; width: 260px; z-index: 50; transform: translateX(-105%); transition: transform .22s; box-shadow: var(--shadow); } .sidebar.open { transform: translateX(0); } .mobile-menu { display: inline-flex; } .topbar { padding: 13px 16px; min-height: 65px; } .content { padding: 23px 15px 35px; } .grid-main,.week-layout { grid-template-columns: 1fr; } .project-list { grid-template-columns: 1fr; } .topic-grid { grid-template-columns: 1fr; } .page-heading { align-items: flex-start; } .date-pill { display: none; } .review-score { grid-template-columns: 1fr; } }
 @media (max-width: 780px) { .detail-grid { grid-template-columns:1fr; } }
+@media (max-width: 640px) { .syllabus-problems { grid-template-columns:1fr; } .syllabus-tools .field { max-width:none; } }
+@media (max-width: 520px) { .dsa-roadmap-summary { grid-template-columns:1fr; } .dsa-roadmap-tools .field { max-width:none; } .dsa-day-row { grid-template-columns:44px minmax(0,1fr) auto; gap:7px; padding:9px; } }
 @media (max-width: 440px) { .stats { gap: 9px; } .stat-card { padding: 13px; } .stat-value { font-size: 23px; } .page-heading .btn { padding: 9px 10px; } .week-strip { gap: 4px; } .week-chip { padding: 7px 2px; } .form-grid { grid-template-columns: 1fr; } .field-group.full { grid-column: auto; } }
 </style>
 </head>
@@ -235,6 +280,8 @@ tbody tr:last-child td { border-bottom: 0; }
           <div class="page-heading"><div><div class="eyebrow">Problem-solving practice</div><h1>Striver A2Z tracker</h1><p class="subtitle">Track topic confidence, not just the number of videos or problems touched.</p></div><span class="tag purple" id="dsaCountBadge">0 of 12 reviewed</span></div>
           <div class="stats"><article class="stat-card"><div class="stat-label">Topics reviewed</div><div class="stat-value" id="dsaTopicsCount">0 / 12</div><div class="stat-foot">Reviewed means explain + solve independently</div></article><article class="stat-card"><div class="stat-label">Problems solved</div><div class="stat-value" id="problemCount">0</div><div class="stat-foot">Enter only independently solved problems</div></article><article class="stat-card"><div class="stat-label">Revision queue</div><div class="stat-value" id="revisionCount">0</div><div class="stat-foot">Revisit difficult or failed questions</div></article><article class="stat-card"><div class="stat-label">Main language</div><div class="stat-value">Java</div><div class="stat-foot">State complexity and test edge cases</div></article></div>
           <div class="topic-grid" id="dsaTopics"></div>
+          <article class="panel" style="margin-top:18px" id="fullDsaSyllabus"><div class="panel-head"><div><div class="panel-title">Complete DSA problem syllabus</div><div class="panel-note">The full topic-by-topic list you selected. Mark a problem after solving it independently.</div></div><span class="tag purple" id="syllabusProgress">0 / 0 complete</span></div><div class="panel-body"><div class="syllabus-tools"><input class="field" id="syllabusSearch" type="search" placeholder="Search a topic or problem..." aria-label="Search the DSA syllabus"><span class="syllabus-hint">Progress is saved in this browser.</span></div><div class="syllabus-progress-wrap"><div class="progress-track"><div class="progress-fill" id="syllabusProgressBar" style="width:0%"></div></div></div><div class="syllabus-list" id="syllabusGroups"></div></div></article>
+          <article class="panel" style="margin-top:18px" id="dsa180Roadmap"><div class="panel-head"><div><div class="panel-title">180-day DSA roadmap</div><div class="panel-note">One assigned problem per day, in your syllabus order, followed by a final mixed revision day.</div></div><span class="tag purple" id="dsa180ProgressText">0 / 180 days</span></div><div class="panel-body"><div class="dsa-roadmap-summary"><div><div class="day-progress-line"><span>Roadmap completion</span><strong id="dsa180Percent">0%</strong></div><div class="progress-track"><div class="progress-fill" id="dsa180ProgressBar" style="width:0%"></div></div></div><span class="syllabus-hint">179 listed problems + 1 final review day</span></div><div class="dsa-next-card" id="dsa180NextCard"><h3 id="dsa180NextTitle">Next up · Day 1</h3><p id="dsa180NextDescription">Start with the first problem in Arrays. Solve independently, test edge cases and record time/space complexity.</p></div><div class="dsa-roadmap-tools"><input class="field" id="dsa180Search" type="search" placeholder="Find a day, topic or problem..." aria-label="Search the 180-day DSA roadmap"><span class="syllabus-hint">Use the checkboxes to mark daily work done. Progress is saved locally.</span></div><div id="dsa180Weeks"></div></div></article>
           <article class="panel" style="margin-top:18px"><div class="panel-head"><div><div class="panel-title">Add a problem to the log</div><div class="panel-note">Store the problem title, link and next revision date</div></div></div><div class="panel-body"><form id="problemForm"><div class="form-grid"><div class="field-group"><label for="problemName">Problem name</label><input class="field" id="problemName" required placeholder="e.g. Longest subarray with sum K"></div><div class="field-group"><label for="problemTopic">Topic</label><select class="field" id="problemTopic"><option>Arrays & hashing</option><option>Binary search</option><option>Linked lists</option><option>Stacks & queues</option><option>Recursion & backtracking</option><option>Trees & BST</option><option>Heaps & greedy</option><option>Graphs</option><option>Dynamic programming</option><option>Strings & two pointers</option><option>Sorting & complexity</option><option>Mixed revision</option></select></div><div class="field-group"><label for="problemLink">Problem URL (optional)</label><input class="field" id="problemLink" type="url" placeholder="https://..."></div><div class="field-group"><label for="problemStatus">Status</label><select class="field" id="problemStatus"><option>Solved independently</option><option>Needs revision</option><option>Could not solve yet</option></select></div></div><div class="form-actions"><button class="btn primary" type="submit">Add to log</button></div></form></div></article>
           <article class="panel" style="margin-top:18px"><div class="panel-head"><div><div class="panel-title">Problem log</div><div class="panel-note">Re-solve difficult problems after 1 day, 1 week and 3–4 weeks</div></div></div><div class="table-wrap"><table><thead><tr><th>Problem</th><th>Topic</th><th>Status</th><th>Next action</th><th></th></tr></thead><tbody id="problemRows"></tbody></table></div><div class="empty-state" id="problemEmpty"><strong>No problems logged yet</strong>Add the first problem after a genuine attempt.</div></article>
         </section>
@@ -306,6 +353,25 @@ tbody tr:last-child td { border-bottom: 0; }
     {dsa:['Timed arrays/strings set; narrate approach before coding.','Timed linked-list/stack/tree set; test null and boundary cases.','Timed graph set; justify traversal and complexity.','Timed DP set; define state and base cases first.','Redo the three highest-value mistakes from prior weeks.','Final mixed set; review correctness, clarity and time management.'],cs:['Mock Java round: collections, JVM, exceptions and OOP.','Mock Spring round: DI, MVC, JPA, validation and transactions.','Mock security round: filters, JWT, roles and negative tests.','Mock SQL/DBMS round: joins, indexes, ACID and isolation.','Mock OS/networking round: threads, deadlock, TCP and HTTP.','Revise concise answers; avoid learning large new topics.'],design:['Design a checkout system with stock consistency.','Design a URL shortener and identify cache/key risks.','Design async notification using queue semantics.','Review distributed failures, retries, timeouts and idempotency.','Practice requirements clarification and API/schema design.','One final timed design; explain trade-offs and operational concerns.'],career:['Run mock interview 1 and record detailed feedback.','Run mock interview 2; focus on the previous weak area.','Check both repositories from clean clone instructions.','Check resume links, project claims and role targeting.','Follow up on active interviews and application next steps.','Weekly review: choose the three biggest remaining gaps.'],output:['Timed DSA results and recurring mistakes list.','Two mock interviews logged with action items.','Both projects build/test instructions verified.','Resume and GitHub profile checked end-to-end.','A list of active applications and follow-up dates.','Evidence-based readiness score and final-week priorities.'],recall:['Explain every solution, including complexity and edge cases.','Repeat missed mock questions without notes.','Run projects from documented setup instructions.','Give concise examples for behavioral questions.','Describe a production issue and systematic debugging.','Review weak areas without starting a large new topic.']},
     {dsa:['Choose the weakest A2Z pattern and solve two problems independently.','Review array/hash/window patterns and explain invariant/complexity.','Review linked-list/tree patterns; code one from a blank file.','Review graph/DP pattern recognition with a timed mixed set.','Final mock DSA: two problems, explain trade-offs and edge cases.','90-day DSA retrospective: list mastered patterns and remaining gaps.'],cs:['Java/backend rapid-fire: answer from memory, then verify gaps.','Revisit Spring request flow, JPA transactions and common production bugs.','Security review: authentication, authorization, secrets and negative tests.','SQL/DBMS review: joins, indexes, normalization, ACID and isolation.','System design and distributed-systems rapid review.','Write a next-30-day plan based on actual interview feedback.'],design:['Review URL shortener design and identify one improvement.','Review checkout/inventory design and concurrency controls.','Review cache/queue trade-offs and failure behavior.','Explain deployment and environment configuration.','Practice one end-to-end system design under time pressure.','Record three topics to continue after the 90-day sprint.'],career:['Submit targeted applications and follow up on live processes.','Rehearse Project 1 five-minute and fifteen-minute explanations.','Rehearse Project 2 AI feature, authorization and transaction design.','Verify resume claims and links; prepare interview-day notes.','Prioritize interview loops, referrals and next steps.','Complete readiness retrospective and set the next 30-day goal.'],output:['Two independently solved weak-pattern problems.','Java/Spring answers revised into concise explanations.','Project tests and demo links verified.','One complete timed system-design write-up.','Application tracker has clear next actions.','A realistic next-month plan based on evidence, not guesswork.'],recall:['Explain why the chosen pattern works.','Answer backend questions without vague claims.','Defend project decisions and admit limitations accurately.','Explain schema, scaling and failure behavior.','Review mock feedback and correct recurring mistakes.','Define what “ready” means from measurable interview performance.']}
   ];
+  const dsaSyllabus = [
+    {id:"arrays",name:"Arrays",problems:["Majority Element-I","Kadane's Algorithm","Majority Element-II","Maximum Product Subarray in an Array","Sort an array of 0's 1's and 2's","3 Sum","Next Permutation","4 Sum","Merge two sorted arrays without extra space","Trapping Rainwater","Count Inversions","Reverse Pairs","Two Sum"]},
+    {id:"hashing",name:"Hashing",problems:["Longest Consecutive Sequence in an Array","Longest subarray with sum K","Count subarrays with given sum","Count subarrays with given xor K"]},
+    {id:"binary-search",name:"Binary Search",problems:["Find peak element","Find minimum in Rotated Sorted Array","Search in rotated sorted array-II","Single element in sorted array","Search in 2D matrix - II","Find Peak Element - II","Find Nth root of a number","Koko eating bananas","Aggressive Cows","Book Allocation Problem","Matrix Median","Kth element of 2 sorted arrays","Median of 2 sorted arrays"]},
+    {id:"sliding-window",name:"Sliding Window and Two Pointers",problems:["Longest Substring Without Repeating Characters","Maximum Points You Can Obtain from Cards","Max Consecutive Ones III","Longest Repeating Character Replacement","Longest Substring With At Most K Distinct Characters","Minimum Window Substring","Number of Substrings Containing All Three Characters","Binary Subarrays With Sum","Count number of Nice subarrays"]},
+    {id:"recursion",name:"Recursion and Backtracking",problems:["Power Set","Generate Parentheses","Letter Combinations of a Phone Number","Combination Sum","Combination Sum II","Subsets II","Palindrome partitioning","Word Search","N Queen","Sudoku Solver"]},
+    {id:"linked-list",name:"Linked List",problems:["Find Middle of Linked List","Find the intersection point of Y LL","Check if LL is palindrome or not","Detect a loop in LL","Remove Nth node from the back of the LL","Find the starting point in LL","Length of loop in LL","Reverse a LL","Merge two Sorted Lists","Sort a Linked List of 0's 1's and 2's","Add two numbers in Linked List","Rotate a LL","Sort LL","Clone a LL with random and next pointer","Reverse LL in group of given size K","Flattening of LL"]},
+    {id:"stacks-queues",name:"Stack and Queues",problems:["Next Greater Element","Next Greater Element - 2","Stock span problem","Sum of Subarray Minimums","Sum of Subarray Ranges","Remove K Digits","Sliding Window Maximum","Largest rectangle in a histogram","Maximum Rectangles","Implement Min Stack","Asteroid Collision","Celebrity Problem","LRU Cache","LFU Cache"]},
+    {id:"greedy",name:"Greedy Algorithms",problems:["Jump Game - I","Valid Paranthesis Checker","Candy","N meetings in one room","Insert Interval","Non-overlapping Intervals","Minimum number of platforms required for a railway","Job sequencing Problem"]},
+    {id:"heaps",name:"Heaps",problems:["Heapify Algorithm","Build heap from a given Array","Implement Min Heap","K-th Largest element in an array","Find Median from Data Stream"]},
+    {id:"binary-trees",name:"Binary Trees",problems:["Level Order Traversal","Maximum Width of BT","Right/Left View of BT","Top View of BT","Print all nodes at a distance of K in BT","Minimum time taken to burn the BT from a given Node","Vertical Order Traversal","Print root to leaf path in BT","Diameter of Binary Tree","LCA in BT","Boundary Traversal","Construct a BT from Preorder and Inorder","Morris Inorder Traversal","Maximum path sum","Serialize and De-serialize BT"]},
+    {id:"bst",name:"Binary Search Trees",problems:["Insert a given node in BST","LCA in BST","Delete a node in BST","Inorder successor and predecessor in BST","Kth Smallest and Largest element in BST","Check if a tree is a BST or not","Construct a BST from a preorder traversal","Two sum in BST","Correct BST with two nodes swapped","Largest BST in Binary Tree"]},
+    {id:"graphs",name:"Graphs",problems:["Flood fill algorithm","Number of islands","Rotten Oranges","Distance of nearest cell having one","Surrounded Regions","Number of distinct islands","Detect a cycle in an undirected graph","Bipartite graph","Detect a cycle in a directed graph","Topological sort or Kahn's algorithm","Course Schedule II","Alien Dictionary","Kosaraju's algorithm","Bridges in graph","Articulation point in graph","Shortest path in undirected graph with unit weights","Shortest path in DAG","Dijkstra's algorithm","Path with minimum effort","Cheapest flight within K stops","Bellman ford algorithm","Floyd warshall algorithm","Word ladder I","Word ladder II","Disjoint Set","Find the MST weight","Number of operations to make network connected","Number of islands II","Making a large island"]},
+    {id:"dp",name:"Dynamic Programming",problems:["Frog jump with K distances","House robber","Ninja's training","Unique paths II","Best time to buy and sell stock with transaction fees","Best time to buy and sell stock IV","0 and 1 Knapsack","Partition a set into two subsets with minimum absolute sum difference","Target sum","Coin change II","Longest common subsequence","Longest common substring","Longest palindromic subsequence","Longest Increasing Subsequence","Number of Longest Increasing Subsequences","Edit distance","Wildcard matching","Matrix chain multiplication","Palindrome partitioning II"]},
+    {id:"tries",name:"Tries",problems:["Trie Implementation and Advanced Operations","Longest Word with All Prefixes","Number of distinct substrings in a string","Maximum XOR of two numbers in an array","Maximum Xor with an element from an array"]},
+    {id:"strings",name:"Strings",problems:["Rabin Karp Algorithm","Z function","KMP Algorithm or LPS array","Shortest Palindrome"]},
+    {id:"bit-manipulation",name:"Bit Manipulation",problems:["Power Set Bit Manipulation","Single Number - II","Single Number - III"]},
+    {id:"mathematics",name:"Mathematics",problems:["Find the repeating and missing number","Print all primes till N"]}
+  ];
   const dsaTopics = [
     {name:'Arrays & hashing',desc:'Frequency maps, prefix sums, subarrays and array patterns.'},
     {name:'Sorting & complexity',desc:'Big O, basic sorting, binary search prerequisites.'},
@@ -324,10 +390,10 @@ tbody tr:last-child td { border-bottom: 0; }
     {id:'quiz',name:'Microservices Quiz Platform',subtitle:'Course-based distributed backend · Target: Week 5',symbol:'⌘',stack:'Spring Boot · PostgreSQL · Feign · Service Discovery · Gateway · Docker',description:'Question Service and Quiz Service with service discovery, synchronous communication and gateway routing.',items:['Question Service CRUD + DTO validation','Quiz Service integration via Feign','Service registry/discovery and API Gateway','Timeouts and failure-path handling','Unit/integration tests','Docker Compose + externalized configuration','README, architecture diagram and API examples','Demo walkthrough and interview notes']},
     {id:'ecom',name:'AI-Enabled E-commerce Backend',subtitle:'Existing project upgrade · Target: Week 10',symbol:'◇',stack:'Spring Boot · JPA · PostgreSQL · Spring Security · Spring AI',description:'Reliable order/inventory flows with a carefully scoped AI product discovery or order-query feature.',items:['Product/order baseline and validation','Reliable order and inventory transactions','Authentication + role-based authorization','Integration tests and error handling','Spring AI ChatClient feature','Embeddings/vector search or scoped RAG','Secure configuration + API documentation','README, architecture diagram and demo']}
   ];
-  const defaultState = {completed:{},dailyDate:'',hoursByDate:{},topicStatus:{},problems:[],projects:{},applications:[],reviews:[],selectedWeek:0};
+  const defaultState = {completed:{},dailyDate:'',hoursByDate:{},topicStatus:{},dsaSyllabus:{},problems:[],projects:{},applications:[],reviews:[],selectedWeek:0};
   let state = loadState();
   function loadState(){ try { const raw=localStorage.getItem(STORE); return raw?mergeState(JSON.parse(raw)):structuredClone(defaultState); } catch(e){ return JSON.parse(JSON.stringify(defaultState)); } }
-  function mergeState(x){ return {...JSON.parse(JSON.stringify(defaultState)),...x,completed:x.completed||{},hoursByDate:x.hoursByDate||{},topicStatus:x.topicStatus||{},problems:x.problems||[],projects:x.projects||{},applications:x.applications||[],reviews:x.reviews||[]}; }
+  function mergeState(x){ return {...JSON.parse(JSON.stringify(defaultState)),...x,completed:x.completed||{},hoursByDate:x.hoursByDate||{},topicStatus:x.topicStatus||{},dsaSyllabus:x.dsaSyllabus||{},problems:x.problems||[],projects:x.projects||{},applications:x.applications||[],reviews:x.reviews||[]}; }
   function saveState(){ try { localStorage.setItem(STORE,JSON.stringify(state)); } catch(e){} updateGlobalStats(); }
   function todayKey(){ const d=new Date(); return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`; }
   function sprintDay(){ const now=new Date(); now.setHours(12,0,0,0); const diff=Math.floor((now-startDate)/86400000); return Math.max(1,Math.min(90,diff+1)); }
@@ -390,7 +456,81 @@ tbody tr:last-child td { border-bottom: 0; }
     el('dayTemplate').innerHTML=w.daily.map((x,i)=>`<div class="day-row"><div class="day-number">${i===5?'D6':`D${i+1}`}</div><div class="day-copy"><strong>${escapeHtml(x)}</strong><p>${i===5?'Weekly review, timed practice, project check and applications.':'Use the 6-hour template and adapt the block to this week’s focus.'}</p></div><span class="day-status">${i===5?'Review day':'Study day'}</span></div>`).join('')+`<div class="day-row"><div class="day-number">REST</div><div class="day-copy"><strong>Recovery / rest day</strong><p>No formal six-hour requirement. Recover and prepare for the next week.</p></div><span class="day-status">Rest</span></div>`;
     renderDayDetails();
   }
+  function buildDsa180Plan(){
+    const plan=dsaSyllabus.flatMap(group=>group.problems.map(problem=>({category:group.name,problem})));
+    plan.push({category:'Final revision',problem:'Mixed DSA revision + mock interview: re-solve weak problems, explain approaches and complexities, and review the mistake log.'});
+    return plan.map((item,index)=>({...item,day:index+1,week:Math.floor(index/7)+1}));
+  }
+  const dsa180Plan=buildDsa180Plan();
+  function renderDsa180Roadmap(){
+    const query=(el('dsa180Search').value||'').trim().toLowerCase();
+    const done=state.dsa180Completed||{};
+    const completed=dsa180Plan.filter(item=>done[item.day]).length;
+    const next=dsa180Plan.find(item=>!done[item.day])||dsa180Plan[dsa180Plan.length-1];
+    el('dsa180ProgressText').textContent=completed+' / '+dsa180Plan.length+' days';
+    el('dsa180Percent').textContent=Math.round(completed/dsa180Plan.length*100)+'%';
+    el('dsa180ProgressBar').style.width=(completed/dsa180Plan.length*100)+'%';
+    el('dsa180NextTitle').textContent=completed===dsa180Plan.length?'Roadmap complete · excellent work':'Next up · Day '+next.day;
+    el('dsa180NextDescription').textContent=completed===dsa180Plan.length?'All 180 days are checked off. Keep revisiting missed questions in mixed timed sets.':'Topic: '+next.category+'. '+next.problem+' Aim to solve independently, test edge cases, state time/space complexity, and record any hint or mistake.';
+    const currentOpen=new Set(Array.from(el('dsa180Weeks').querySelectorAll('details[open]')).map(x=>Number(x.dataset.dsa180Week)));
+    const weeks=Array.from({length:Math.ceil(dsa180Plan.length/7)},(_,i)=>i+1);
+    let markup='';
+    weeks.forEach(week=>{
+      const items=dsa180Plan.filter(item=>item.week===week);
+      const matching=items.filter(item=>!query||('day '+item.day+' '+item.category+' '+item.problem).toLowerCase().includes(query));
+      if(query&&!matching.length)return;
+      const weekDone=items.filter(item=>done[item.day]).length;
+      const first=items[0].day,last=items[items.length-1].day;
+      const shouldOpen=query?true:(currentOpen.has(week)||(!currentOpen.size&&week===1));
+      markup+='<details class="dsa-week" data-dsa180-week="'+week+'"'+(shouldOpen?' open':'')+'><summary><span class="dsa-week-title">Week '+week+' · Days '+first+'–'+last+'</span><span class="dsa-week-count">'+weekDone+' / '+items.length+' complete</span></summary><div class="dsa-day-list">';
+      matching.forEach(item=>{
+        const checked=!!done[item.day];
+        const note=item.day===180?'Final checkpoint: pick weak problems from multiple categories and complete a timed mock.':'Solve independently first, then test edge cases and write time/space complexity.';
+        markup+='<label class="dsa-day-row'+(checked?' done':'')+'"><span class="dsa-day-number">DAY '+item.day+'</span><span class="dsa-day-main"><span class="dsa-day-name">'+escapeHtml(item.problem)+'</span><span class="dsa-day-category">'+escapeHtml(item.category)+'</span><span class="dsa-day-note">'+note+'</span></span><input type="checkbox" data-dsa180-day="'+item.day+'"'+(checked?' checked':'')+' aria-label="Mark Day '+item.day+' complete"></label>';
+      });
+      markup+='</div></details>';
+    });
+    el('dsa180Weeks').innerHTML=markup||'<div class="syllabus-empty">No matching day or problem. Try a different search.</div>';
+    el('dsa180Weeks').querySelectorAll('[data-dsa180-day]').forEach(input=>input.addEventListener('change',()=>{
+      state.dsa180Completed=state.dsa180Completed||{};
+      state.dsa180Completed[input.dataset.dsa180Day]=input.checked;
+      saveState();
+      renderDsa180Roadmap();
+      toast(input.checked?'DSA day completed':'DSA day reopened');
+    }));
+  }
+  function renderDsaSyllabus(){
+    el('syllabusSearch').oninput = renderDsaSyllabus;
+    const query=(el('syllabusSearch').value||'').trim().toLowerCase();
+    const openGroups=new Set(Array.from(el('syllabusGroups').querySelectorAll('details[open]')).map(x=>x.dataset.syllabusGroup));
+    let total=0,completed=0;
+    dsaSyllabus.forEach(group=>group.problems.forEach((problem,i)=>{total++;if(state.dsaSyllabus[group.id+'-'+i])completed++;}));
+    el('syllabusProgress').textContent=completed+' / '+total+' complete';
+    el('syllabusProgressBar').style.width=(total?completed/total*100:0)+'%';
+    let html='';
+    dsaSyllabus.forEach(group=>{
+      const matchedGroup=group.name.toLowerCase().includes(query);
+      const matching=group.problems.map((problem,i)=>({problem:problem,index:i})).filter(x=>!query||matchedGroup||x.problem.toLowerCase().includes(query));
+      if(query&&!matchedGroup&&!matching.length)return;
+      const groupDone=group.problems.reduce((n,problem,i)=>n+(state.dsaSyllabus[group.id+'-'+i]?1:0),0);
+      html+='<details class="syllabus-group" data-syllabus-group="'+group.id+'"'+((openGroups.has(group.id)||!!query)?' open':'')+'><summary><span class="syllabus-group-name">'+escapeHtml(group.name)+'</span><span class="syllabus-group-progress">'+groupDone+' / '+group.problems.length+' complete</span></summary><div class="syllabus-problems">';
+      matching.forEach(item=>{
+        const key=group.id+'-'+item.index,checked=!!state.dsaSyllabus[key];
+        html+='<label class="syllabus-problem'+(checked?' done':'')+'"><input type="checkbox" data-syllabus-problem="'+key+'"'+(checked?' checked':'')+'><span>'+escapeHtml(item.problem)+'</span></label>';
+      });
+      html+='</div></details>';
+    });
+    el('syllabusGroups').innerHTML=html||'<div class="syllabus-empty">No matching problem. Try another search term.</div>';
+    el('syllabusGroups').querySelectorAll('[data-syllabus-problem]').forEach(input=>input.addEventListener('change',()=>{
+      state.dsaSyllabus[input.dataset.syllabusProblem]=input.checked;
+      saveState();
+      renderDsaSyllabus();
+      toast(input.checked?'Syllabus problem completed':'Syllabus problem reopened');
+    }));
+  }
   function renderDsa(){
+    renderDsaSyllabus();
+    renderDsa180Roadmap();
     el('dsaTopics').innerHTML=dsaTopics.map((t,i)=>{const status=state.topicStatus[i]||'Not started';return `<article class="topic-card"><h3>${escapeHtml(t.name)}</h3><p>${escapeHtml(t.desc)}</p><div class="topic-bottom"><span class="tag ${status==='Reviewed'?'green':status==='In progress'?'purple':''}">${escapeHtml(status)}</span><select class="topic-status" data-topic="${i}" aria-label="Status for ${escapeHtml(t.name)}"><option ${status==='Not started'?'selected':''}>Not started</option><option ${status==='In progress'?'selected':''}>In progress</option><option ${status==='Reviewed'?'selected':''}>Reviewed</option></select></div></article>`}).join('');
     el('dsaTopics').querySelectorAll('[data-topic]').forEach(s=>s.addEventListener('change',()=>{state.topicStatus[s.dataset.topic]=s.value;saveState();renderDsa();}));
     el('dsaCountBadge').textContent=`${Object.values(state.topicStatus).filter(x=>x==='Reviewed').length} of ${dsaTopics.length} reviewed`;
